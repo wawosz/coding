@@ -59,7 +59,7 @@ print('Plotting ...')
 
 # setup the screen to plot image
 p = pyvista.Plotter()
-p.add_mesh(image, cpos='xy', cmap='Greys_r')
+p.add_mesh(image, cmap='Greys_r')
 p.show_bounds(grid='front', xlabel='', ylabel='', zlabel='', location='outer', all_edges=True)
 p.remove_scalar_bar()
 p.set_background(color='black')
