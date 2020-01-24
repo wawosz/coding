@@ -4,7 +4,7 @@ import random
 
 
 # Definition of Voxel class. Class will contain several parameters and methods
-#  
+#
 # Parameters:
 # .half_life: half-life for given isotope (i.e. minutes)
 # .decay_constant = ln(2) / half_life
@@ -17,7 +17,7 @@ import random
 class Voxel:
     def __init__(self):
         self.half_life = 0              # half-life value
-        self.decay_constant = 0         # decay constant calculated as ln(2)/half_life
+        self.decay_constant = 0         # decay constant calculated as ln(2)/HL
         self.initial_activity = 0       # initial activity in the voxel
         self.decayed_activity = 0       # activity after some time (decayed)
 
@@ -25,12 +25,13 @@ class Voxel:
         decayed_activity = initial_activity * np.exp(-decay_constant * time)
         return decayed_activity
 
+
 # dictionary (list) of selected isotopes and corresponding half-lifes
 isotopes = {
-    "tc99m":6.0,
-    "tl201":73.1,
-    "f18":2.0,
-    "c11":0.33
+    "tc99m": 6.0,
+    "tl201": 73.1,
+    "f18": 2.0,
+    "c11": 0.33
 }
 
 # create a list of classes Voxel
@@ -40,7 +41,7 @@ voxel_list = [Voxel() for i in range(100)]
 for vox in voxel_list:
     vox.initial_activity = random.random()
 
-# this is how you can access single class element or plot a range of decayed values
+# this is how you can access single class element or plot a decayed values
 # voxel_list[0].initial_activity = 100
 # print(voxel_list[0].initial_activity)
 # for t in range(0, 24):
@@ -53,14 +54,15 @@ for vox in voxel_list:
 grid_0 = []
 for x in range(0, 100):
     grid_0.append(voxel_list[x].initial_activity)
-grid_0 = np.array(grid_0).reshape(10,10)
+grid_0 = np.array(grid_0).reshape(10, 10)
 
 # create a grid 10x10 for plotting voxels after some time
 grid_t = []
 for x in range(0, 100):
-    voxel_list[x].decayed_activity = voxel_list[x].decay(voxel_list[x].initial_activity, 0.115524, 10)
+    voxel_list[x].decayed_activity = \
+        voxel_list[x].decay(voxel_list[x].initial_activity, 0.115524, 10)
     grid_t.append(voxel_list[x].decayed_activity)
-grid_t = np.array(grid_t).reshape(10,10)
+grid_t = np.array(grid_t).reshape(10, 10)
 
 # plot two graphs side-by-side
 fig, (ax1, ax2) = plt.subplots(ncols=2)
