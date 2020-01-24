@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from PyQt5.QtWidgets import (QWidget, QToolTip, QLineEdit, QPushButton, QApplication)
-from PyQt5.QtGui import QFont    
+from PyQt5.QtWidgets import (QWidget, QToolTip, QLineEdit, QPushButton,
+                             QApplication)
+from PyQt5.QtGui import QFont
 
 
 class Example(QWidget):
@@ -25,16 +26,17 @@ class Example(QWidget):
         self.le.move(100, 100)
 
         btn = QPushButton('Close the window', self)
-        btn.setToolTip('This is a <b>QPushButton</b> widget. After clicking, the window will close.')
+        btn.setToolTip('This is a <b>QPushButton</b> widget. After clicking, \
+            the window will close.')
 
         btn.clicked.connect(self.printing_text)
         btn.clicked.connect(QApplication.instance().quit)
 
         btn.resize(btn.sizeHint())
-        btn.move(50, 50)       
+        btn.move(50, 50)
 
         self.setGeometry(300, 300, 300, 200)
-        self.setWindowTitle('Tooltips')    
+        self.setWindowTitle('Tooltips')
         self.show()
 
     def printing_text(self):
