@@ -1,0 +1,8 @@
+NRRD0001
+type: int16
+dimension: 3
+sizes: 1024 1024 1472
+spacings: 0.03548 0.03548 0.03548
+encoding: raw
+data file: M73.raw
+endian: little
