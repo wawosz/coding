@@ -1,6 +1,18 @@
+#!/usr/bin/env python3
+
+#
+#  _ _ _ _____ _ _ _ _____ _____ _____
+# | | | |  _  | | | |     |   __|__   |
+# | | | |     | | | |  |  |__   |   __|
+# |_____|__|__|_____|_____|_____|_____|
+#
+# (C) 2019 by Wawrzyniec L. Dobrucki
+# wawosz@gmail.com
+#
+# Syntax: python3 write_dicom.py
 #
 # Python script to save numpy array to DICOM file
-# by Wawrzyniec L. Dobrucki
+#
 #
 
 import dicom
@@ -30,7 +42,7 @@ def write_dicom(pixel_array, filename):
     ds.SeriesInstanceUID = '1.3'
     ds.SOPInstanceUID = '1.3'
     ds.SOPClassUID = 'Secondary Capture Image Storage'
-    ds.SecondaryCaptureDeviceManufctur = 'Python 3.5.3'
+    ds.SecondaryCaptureDeviceManufctur = 'Python 3.7.5'
 
     # Patient-related data
     ds.PatientName = 'Wawrzyniec L. Dobrucki'

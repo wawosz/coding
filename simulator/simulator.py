@@ -1,3 +1,17 @@
+#!/usr/bin/env python3
+
+#
+#  _ _ _ _____ _ _ _ _____ _____ _____
+# | | | |  _  | | | |     |   __|__   |
+# | | | |     | | | |  |  |__   |   __|
+# |_____|__|__|_____|_____|_____|_____|
+#
+# (C) 2019 by Wawrzyniec L. Dobrucki
+# wawosz@gmail.com
+#
+# Syntax: python3 simulator.py
+#
+
 import matplotlib.pyplot as plt
 import numpy as np
 import random
@@ -35,7 +49,7 @@ isotopes = {
 }
 
 # create a list of classes Voxel
-voxel_list = [Voxel() for i in range(100)]
+voxel_list = [Voxel() for i in range(10000)]
 
 # populate classes with initial values
 for vox in voxel_list:
@@ -50,19 +64,19 @@ for vox in voxel_list:
 #     print(test)
 # plt.show()
 
-# create a grid 10x10 for plotting voxels at time 0
+# create a grid 100x100 for plotting voxels at time 0
 grid_0 = []
-for x in range(0, 100):
+for x in range(0, 10000):
     grid_0.append(voxel_list[x].initial_activity)
-grid_0 = np.array(grid_0).reshape(10, 10)
+grid_0 = np.array(grid_0).reshape(100, 100)
 
-# create a grid 10x10 for plotting voxels after some time
+# create a grid 100x100 for plotting voxels after some time
 grid_t = []
-for x in range(0, 100):
+for x in range(0, 10000):
     voxel_list[x].decayed_activity = \
         voxel_list[x].decay(voxel_list[x].initial_activity, 0.115524, 10)
     grid_t.append(voxel_list[x].decayed_activity)
-grid_t = np.array(grid_t).reshape(10, 10)
+grid_t = np.array(grid_t).reshape(100, 100)
 
 # plot two graphs side-by-side
 fig, (ax1, ax2) = plt.subplots(ncols=2)

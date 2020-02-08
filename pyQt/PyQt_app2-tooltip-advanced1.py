@@ -1,5 +1,16 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+
+#
+#  _ _ _ _____ _ _ _ _____ _____ _____
+# | | | |  _  | | | |     |   __|__   |
+# | | | |     | | | |  |  |__   |   __|
+# |_____|__|__|_____|_____|_____|_____|
+#
+# (C) 2019 by Wawrzyniec L. Dobrucki
+# wawosz@gmail.com
+#
+# Syntax: python3 PyQt_app2-tooltip-advanced1.py
+#
 
 import sys
 from PyQt5.QtWidgets import (QWidget, QToolTip, QLineEdit, QPushButton,
