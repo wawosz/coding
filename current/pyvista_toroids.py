@@ -49,55 +49,86 @@ def supertorus(yScale, xScale, Height, InternalRadius, Vertical, Horizontal,
 #            deltaX=0, deltaY=0, deltaZ=0)
 
 # background image 100x100 pixels
-image = pyvista.read('images/hindlimb.jpg')
-
-# same image but rescaled to 10x10 pixels in grayscale
-image10 = plt.imread('images/hindlimb10.jpg')
-image10_gray = 0.2989 * image10[:,:,0] + 0.5870 * image10[:,:,1] + 0.1140 * image10[:,:,2] 
 
 print('Plotting ...')
 
-# setup the screen to plot image
+# setup the plotter
 p = pyvista.Plotter()
-p.add_mesh(image, cmap='Greys_r')
-p.show_bounds(grid='front', xlabel='', ylabel='', zlabel='', location='outer', all_edges=True)
-p.remove_scalar_bar()
 p.set_background(color='black')
 
-# initialize indexes
-i10 = -1
-j10 = -1
+# create supertori with different internal radius
+dx = 0
+dy = 0
+for i in np.arange(1, 5, 1):
+    dx += 10
+    dz = 1
+    mesh = supertorus(yScale = 1.0, xScale = 1.0,
+                      Height=1.0,
+                      InternalRadius=i,
+                      Vertical=1,
+                      Horizontal=1,
+                      deltaX=dx, deltaY=dy, deltaZ=dz)
+    p.add_mesh(mesh, color=[0.5, 0.5, 1], opacity=1)
 
-# create supertori based on 10 x 10 background image
-for i in range(0, 100, 10):
-    i10 = i10 + 1
-    j10 = -1
-    for j in range(0, 100, 10):
-        j10 = j10 + 1
-        # perfusion = 5 * random.random()
-        # image10_gray array needs to be transposed to match background image
-        image10_point = image10_gray[9-j10, i10]/256
-        perfusion = 0.1 + 5 * image10_point
-        hypoxia = 4 * image10_point
-        squareness = 0.25 + random.random()
-        # squareness = 1
-        surface = supertorus(yScale=1.25, xScale=1.25,
-                             Height=perfusion,
-                             InternalRadius=hypoxia,
-                             Vertical=1,
-                             Horizontal=squareness,
-                             deltaX=i, deltaY=j, deltaZ=perfusion)
-        # when perfusion is very low, change color of torus to black (invisible)
-        if image10_point < 0.1:
-            color_surface = [0, 0, 0]
-        else:
-            color_surface = [image10_point * random.random(), 0, 1]
-        p.add_mesh(surface, color=color_surface, opacity=1)
+# create supertori with different height
+dx = 0
+dy = 10
+for i in np.arange(0, 4, 1):
+    dx += 10
+    dz = i
+    mesh = supertorus(yScale = 1.0, xScale = 1.0,
+                      Height=i,
+                      InternalRadius=3,
+                      Vertical=1,
+                      Horizontal=1,
+                      deltaX=dx, deltaY=dy, deltaZ=dz)
+    p.add_mesh(mesh, color=[0.5, 0.5, 1], opacity=1)
+
+# create supertori with different vertical squareness
+dx = 0
+dy = 20
+for i in np.arange(0.2, 2, 0.5):
+    dx += 10
+    dz = 1
+    mesh = supertorus(yScale = 1.0, xScale = 1.0,
+                      Height=1.0,
+                      InternalRadius=3,
+                      Vertical=i,
+                      Horizontal=1,
+                      deltaX=dx, deltaY=dy, deltaZ=dz)
+    p.add_mesh(mesh, color=[0.5, 0.5, 1], opacity=1)
+
+# create supertori with different horizontal squareness
+dx = 0
+dy = 30
+for i in np.arange(0.2, 2, 0.5):
+    dx += 10
+    dz = 1
+    mesh = supertorus(yScale = 1.0, xScale = 1.0,
+                      Height=1.0,
+                      InternalRadius=3,
+                      Vertical=1,
+                      Horizontal=i,
+                      deltaX=dx, deltaY=dy, deltaZ=dz)
+    p.add_mesh(mesh, color=[0.5, 0.5, 1], opacity=1)
+
+# create supertori with different color gradient
+dx = 0
+dy = 40
+for i in np.arange(0.2, 1, 0.2):
+    dx += 10
+    dz = 1
+    mesh = supertorus(yScale = 1.0, xScale = 1.0,
+                      Height=1.0,
+                      InternalRadius=3,
+                      Vertical=1,
+                      Horizontal=1,
+                      deltaX=dx, deltaY=dy, deltaZ=dz)
+    p.add_mesh(mesh, color=[i, 0, i], opacity=1)
 
 p.view_xy()
-p.screenshot('images/glyph_image_xy.png')
-
+p.screenshot('glyphs_xy.png')
 p.view_isometric()
-p.screenshot('images/glyph_image_isometric.png')
+p.screenshot('glyphs_isometric.png')
 
 p.show()
