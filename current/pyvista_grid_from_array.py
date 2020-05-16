@@ -15,6 +15,7 @@ print(grid.points.shape)
 # integer values
 d = np.random.randint(low=1, high=100, size=grid.points.shape)
 
+
 # or you can fill the scalar values with zeros
 # d = np.zeros_like(grid.points)
 
