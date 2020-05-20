@@ -23,10 +23,10 @@ def supertorus(yScale, xScale, Height, InternalRadius, Vertical, Horizontal,
 #            deltaX=0, deltaY=0, deltaZ=0)
 
 # background image 100x100 pixels
-image = pv.read('images/hindlimb.jpg')
+image = pv.read('/home/wawosz/coding/vtktesting/pyvista/images/hindlimb.jpg')
 
 # same image but rescaled to 10x10 pixels in grayscale
-image10 = plt.imread('images/hindlimb10.jpg')
+image10 = plt.imread('/home/wawosz/coding/vtktesting/pyvista/images/hindlimb10.jpg')
 image10_gray = 0.2989 * image10[:,:,0] + 0.5870 * image10[:,:,1] + 0.1140 * image10[:,:,2] 
 
 print('Plotting ...')

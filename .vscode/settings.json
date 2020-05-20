@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/usr/bin/python3.7"
+    "python.venvPath": "/home/wawosz/.local/share/virtualenvs/",
+    "python.pythonPath": "/home/wawosz/.local/share/virtualenvs/wawosz-YnOFf70g/bin/python",
+    "python.jediEnabled": true,
 }

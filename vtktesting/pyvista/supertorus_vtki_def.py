@@ -49,10 +49,10 @@ def supertorus(yScale, xScale, Height, InternalRadius, Vertical, Horizontal,
 #            deltaX=0, deltaY=0, deltaZ=0)
 
 # background image 100x100 pixels
-image = pyvista.read('images/hindlimb.jpg')
+image = pyvista.read('/home/wawosz/coding/vtktesting/pyvista/images/hindlimb.jpg')
 
 # same image but rescaled to 10x10 pixels in grayscale
-image10 = plt.imread('images/hindlimb10.jpg')
+image10 = plt.imread('/home/wawosz/coding/vtktesting/pyvista/images/hindlimb10.jpg')
 image10_gray = 0.2989 * image10[:,:,0] + 0.5870 * image10[:,:,1] + 0.1140 * image10[:,:,2] 
 
 print('Plotting ...')
@@ -94,10 +94,5 @@ for i in range(0, 100, 10):
             color_surface = [image10_point * random.random(), 0, 1]
         p.add_mesh(surface, color=color_surface, opacity=1)
 
-p.view_xy()
-p.screenshot('images/glyph_image_xy.png')
-
 p.view_isometric()
-p.screenshot('images/glyph_image_isometric.png')
-
-p.show()
+p.show(screenshot='glyph_image_isometric.png')

@@ -7,8 +7,8 @@
 
 import pyvista
 import numpy as np
-import random
-import matplotlib.pyplot as plt
+#import random
+#import matplotlib.pyplot as plt
 
 
 def supertorus(yScale, xScale, Height, InternalRadius, Vertical, Horizontal,
@@ -126,9 +126,8 @@ for i in np.arange(0.2, 1, 0.2):
                       deltaX=dx, deltaY=dy, deltaZ=dz)
     p.add_mesh(mesh, color=[i, 0, i], opacity=1)
 
-p.view_xy()
-p.screenshot('glyphs_xy.png')
-p.view_isometric()
-p.screenshot('glyphs_isometric.png')
+# p.view_xy()
+# p.show(screenshot='glyphs_xy.png')
 
-p.show()
+p.view_isometric()
+p.show(screenshot='glyphs_isometric.png')
