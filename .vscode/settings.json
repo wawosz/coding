@@ -1,5 +1,6 @@
 {
     "python.venvPath": "/home/wawosz/.local/share/virtualenvs/",
-    "python.pythonPath": "/home/wawosz/.local/share/virtualenvs/wawosz-YnOFf70g/bin/python",
+    "python.pythonPath": "/sbin/python",
     "python.jediEnabled": true,
+    "python.languageServer": "Jedi",
 }

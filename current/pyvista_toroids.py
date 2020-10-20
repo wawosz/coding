@@ -13,6 +13,22 @@ import numpy as np
 
 def supertorus(yScale, xScale, Height, InternalRadius, Vertical, Horizontal,
                deltaX=0, deltaY=0, deltaZ=0):
+    """Graphing parametric supertoroidal surfaces
+
+    Args:
+        yScale ([type]): [description]
+        xScale ([type]): [description]
+        Height ([type]): [description]
+        InternalRadius ([type]): [description]
+        Vertical ([type]): [description]
+        Horizontal ([type]): [description]
+        deltaX (int, optional): [description]. Defaults to 0.
+        deltaY (int, optional): [description]. Defaults to 0.
+        deltaZ (int, optional): [description]. Defaults to 0.
+
+    Returns:
+        [type]: [description]
+    """
   
     #  initial range for values used in parametric equation
     n = 100
