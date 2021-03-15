@@ -48,6 +48,7 @@ voxel_list = [Voxel() for i in range(400)]
 # populate classes with initial values (random)
 for vox in voxel_list:
     vox.initial_activity = random.random()
+    vox.decay_constant = np.random.choice([0.115524, 0.346573])
 
 # create a grid 20x20 for plotting voxels at time 0
 grid_0 = []
@@ -56,10 +57,16 @@ for x in range(0, 400):
 grid_0 = np.array(grid_0).reshape(20, 20)   # reshape array of 400 values into 20x20
 
 # create a grid 20x20 for plotting voxels after some time (here time=10)
+# grid_t = []
+# for x in range(0, 400):
+#     voxel_list[x].decayed_activity = \
+#         voxel_list[x].decay(voxel_list[x].initial_activity, voxel_list[x].decay_constant, 10)
+#     grid_t.append(voxel_list[x].decayed_activity)
+# grid_t = np.array(grid_t).reshape(20, 20)   # reshape array of 400 values into 20x20
+
 grid_t = []
 for x in range(0, 400):
-    voxel_list[x].decayed_activity = \
-        voxel_list[x].decay(voxel_list[x].initial_activity, 0.115524, 10)
+    voxel_list[x].decayed_activity = voxel_list[x].decay_constant
     grid_t.append(voxel_list[x].decayed_activity)
 grid_t = np.array(grid_t).reshape(20, 20)   # reshape array of 400 values into 20x20
 
@@ -68,7 +75,7 @@ fig, (ax1, ax2) = plt.subplots(ncols=2)
 im1 = ax1.imshow(grid_0, interpolation='None', cmap='binary', vmin=0, vmax=1)
 ax1.set_title('Plot at time 0')
 im2 = ax2.imshow(grid_t, interpolation='None', cmap='binary', vmin=0, vmax=1)
-ax2.set_title('Plot at time t')
+ax2.set_title('Isotopes mask')
 fig.subplots_adjust(wspace=0.4)
 fig.colorbar(im1, ax=ax1, fraction=0.046, pad=0.04)
 fig.colorbar(im2, ax=ax2, fraction=0.046, pad=0.04)
