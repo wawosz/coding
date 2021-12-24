@@ -23,3 +23,5 @@ pyvista
 bokeh
 flake8
 pylint
+rich
+PyQt5
