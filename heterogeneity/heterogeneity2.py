@@ -42,7 +42,7 @@ V_A = ndimage.variance(A)
 
 # Plot simulated array
 plt.figure(1)
-plt.imshow(A, cmap='gray', interpolation='bicubic') #bicubic interpolation makes image more smooth
+plt.imshow(A, cmap='gray') #bicubic interpolation makes image more smooth
 plt.title('Heterogenous image')
 plt.colorbar()
 
