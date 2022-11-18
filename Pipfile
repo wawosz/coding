@@ -1,0 +1,34 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+numpy = "*"
+matplotlib = "*"
+scipy = "*"
+scikit-learn = "*"
+scikit-image = "*"
+sympy = "*"
+seaborn = "*"
+pillow = "*"
+pandas = "*"
+jupyterlab = "*"
+beautifulsoup4 = "*"
+tables = "*"
+html5lib = "*"
+lxml = "*"
+pint = "*"
+modsimpy = "*"
+vtk = "*"
+pyvista = "*"
+bokeh = "*"
+flake8 = "*"
+pylint = "*"
+rich = "*"
+pyqt5 = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
