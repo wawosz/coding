@@ -26,3 +26,4 @@ flake8
 pylint
 rich
 PyQt5
+pyfeats
