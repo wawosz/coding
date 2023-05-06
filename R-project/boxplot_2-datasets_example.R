@@ -8,18 +8,18 @@ blocking <- c(4829.41,
 nonblocking <- c(9127.37,
                  4208.75,
                  6081.16,
-                 3096.83,
                  3577.34)
 
 boxplot(blocking, nonblocking, 
         main = TeX(r'($^{64}$Cu-PEG$_{4}$-RAP Blocking Study)'),
         at = c(1,2),
-        las = 1,
+        las = 0,
         names = c("blocking", "nonblocking"),
         col = c("orange", "red"),
         border = "black",
         horizontal = TRUE,
         notch = FALSE,
+        boxwex = 0.5,
         xlab = TeX(r'($^{64}$Cu-PEG$_{4}$-RAP Activity (counts))', bold = TRUE)
         )
 
@@ -34,4 +34,4 @@ stripchart(x,
            bg = c("black")
           )
 
-t.test(blocking, nonblocking, paired = FALSE)
+t.test(blocking, nonblocking, paired = TRUE)
