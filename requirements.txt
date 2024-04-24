@@ -18,7 +18,7 @@ tables
 html5lib
 lxml
 pint
-modsimpy
+# modsimpy
 vtk
 pyvista
 bokeh
@@ -26,4 +26,4 @@ flake8
 pylint
 rich
 PyQt5
-pyfeats
+# pyfeats
