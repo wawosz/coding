@@ -27,3 +27,4 @@ pylint
 rich
 PyQt5
 # pyfeats
+pydicom
