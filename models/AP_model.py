@@ -37,7 +37,7 @@ def beta_n(V):  return 0.125*np.exp(-(V+65)/80)
 
 # External stimulus
 def I_ext(t):
-    return 10 * (t > 5) * (t < 80)  # External current (uA/cm^2)
+    return 2 * (t > 5) * (t < 80)  # External current (uA/cm^2)
 
 # Main simulation loop
 for i in range(1, len(t)):
